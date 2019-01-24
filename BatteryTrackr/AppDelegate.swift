@@ -14,7 +14,8 @@ import IOKit.ps
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-
+    var batteryTimer: Timer!
+    
     @objc func printQuote(_ sender: Any?) {
         let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
         let quoteAuthor = "Mark Twain"
@@ -29,6 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(getBattery(_:))
         }
         constructMenu()
+        
+        
+        batteryTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getBattery(_:)), userInfo: nil, repeats: true)
     }
     
 //    var helloWorldTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(printQuote(_:)), userInfo: nil, repeats: true)
@@ -54,12 +58,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let capacity = info[kIOPSCurrentCapacityKey] as? Int,
                 let max = info[kIOPSMaxCapacityKey] as? Int {
                 print("\(name): \(capacity) of \(max)")
+                writeTofile(text: "\(name): \(capacity) of \(max)")
             }
         }
+    }
+    
+    func writeTofile(text: String) {
+        let newFileUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("batteryHistory.txt")
+        
+        if let fileUpdater = try? FileHandle(forUpdating: newFileUrl!) {
+            fileUpdater.seekToEndOfFile()
+            fileUpdater.write(text.data(using: .utf8)!)
+            fileUpdater.write("\n".data(using: .utf8)!)
+            fileUpdater.closeFile()
+        }
+        
+//        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+//            let fileURL = dir.appendingPathComponent(file)
+//
+//            do {
+//                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+//            } catch {}
+//
+//            do {
+//                let readText = try String(contentsOf: fileURL, encoding: .utf8)
+//                print(readText)
+//            } catch {}
+//        }
+
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        batteryTimer.invalidate();
     }
     
     func constructMenu() {
