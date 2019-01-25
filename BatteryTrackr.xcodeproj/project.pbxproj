@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524D3ACB21FA289500D5B90E /* BatteryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ACA21FA289500D5B90E /* BatteryInfoViewController.swift */; };
+		524D3ACD21FA2CAD00D5B90E /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ACC21FA2CAD00D5B90E /* Battery.swift */; };
 		CC7CE5BB21F6A11C0001E6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CE5BA21F6A11C0001E6D3 /* AppDelegate.swift */; };
 		CC7CE5BD21F6A11C0001E6D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CE5BC21F6A11C0001E6D3 /* ViewController.swift */; };
 		CC7CE5BF21F6A11D0001E6D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC7CE5BE21F6A11D0001E6D3 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524D3ACA21FA289500D5B90E /* BatteryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryInfoViewController.swift; sourceTree = "<group>"; };
+		524D3ACC21FA2CAD00D5B90E /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		CC7CE5B721F6A11C0001E6D3 /* BatteryTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatteryTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7CE5BA21F6A11C0001E6D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC7CE5BC21F6A11C0001E6D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				CC7CE5BA21F6A11C0001E6D3 /* AppDelegate.swift */,
+				524D3ACC21FA2CAD00D5B90E /* Battery.swift */,
+				524D3ACA21FA289500D5B90E /* BatteryInfoViewController.swift */,
 				CC7CE5BC21F6A11C0001E6D3 /* ViewController.swift */,
 				CC7CE5BE21F6A11D0001E6D3 /* Assets.xcassets */,
 				CC7CE5C021F6A11E0001E6D3 /* Main.storyboard */,
@@ -135,6 +141,8 @@
 			files = (
 				CC7CE5BD21F6A11C0001E6D3 /* ViewController.swift in Sources */,
 				CC7CE5BB21F6A11C0001E6D3 /* AppDelegate.swift in Sources */,
+				524D3ACB21FA289500D5B90E /* BatteryInfoViewController.swift in Sources */,
+				524D3ACD21FA2CAD00D5B90E /* Battery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
